@@ -4,8 +4,8 @@ import { TiledResource } from '@excaliburjs/plugin-tiled';
 const Assets = {
     StartImage: new ImageSource('images/Intro.png'),
     BatImage: new ImageSource('images/bat.png'),
-    CharacterSheet: new ImageSource('src/assets/characters/Amelia_run_16x16.png'),
-    GameMap: new TiledResource('src/assets/maps/mapnew.tmx'),
+    CharacterSheet: new ImageSource('images/Amelia_run_16x16.png'),
+    GameMap: new TiledResource('maps/mapnew.tmx'),
     EndGameScreen: new ImageSource('images/EndScene.png'), // Game over screen image
     BackgroundTrack: new Sound('images/background.mp3'), // Background audio
     CollectSound: new Sound('images/Collectin.mp3'), // Sound for bat collection
