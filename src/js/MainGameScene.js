@@ -15,17 +15,12 @@ export class GameScene extends ExScene {
         // Ensure the Tiled map resource is loaded
         await Assets.GameMap.load();
 
-        // Inspect the structure of the Tiled map resource
-        console.log('Tiled map resource:', Assets.GameMap);
+
 
         // Add the Tiled map to the scene
         Assets.GameMap.addToScene(this);
 
-        // Log the parsed Tiled map data
-        console.log('Parsed Tiled map data:', Assets.GameMap.data);
 
-        // Extract collision objects from the Tiled map
-        this.initializeCollisionObjects(Assets.GameMap);
 
         // Handle the tileset
         const tilesetImage = Assets.CharacterSheet.image;
@@ -33,7 +28,6 @@ export class GameScene extends ExScene {
         const tilesetHeight = Assets.CharacterSheet.height;
 
         const tilesetCanvas = createTilesetCanvas(tilesetImage, tilesetWidth, tilesetHeight);
-        console.log("Tileset Canvas Created:", tilesetCanvas);
 
         // Define map dimensions in pixels
         const mapWidth = 40 * 16;
@@ -62,13 +56,11 @@ export class GameScene extends ExScene {
     }
 
     initializeCollisionObjects(tiledMapResource) {
-        console.log('Tiled map layers:', tiledMapResource.layers);
 
         const collisionLayer = tiledMapResource.layers.find(layer => layer.name === 'collision');
 
         if (collisionLayer && collisionLayer.objects) {
             collisionLayer.objects.forEach(object => {
-                console.log('Wall object:', object);
                 const wallInstance = new Wl(object.x, object.y, object.width, object.height);
                 this.add(wallInstance);
 
